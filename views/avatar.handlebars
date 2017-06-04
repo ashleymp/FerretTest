@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/images/favicon.ico?" rel="icon" type="image/x-icon">
+
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+
+    <title>Ferret</title>
+
+    <!-- Avatar Page CSS -->
+    <link href="/css/avatar.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/hovereffect.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Facebook sharing -->
+     <meta property="og:url"           content="https://ferret.herokuapp.com/"/>
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="HELLO" />
+  <meta property="og:description"   content="Dare to explore the world" />
+  <!--<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />-->
+</head>
+
+
+<body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <div id="navbar">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle Navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="/home">Ferret</a>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <nav class="navbar navbar-default navbar-fixed-top" id="mainNav">
+                <div class="container-fluid">
+                    
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle Navigation</span> Menu <i class="fa fa-bars"></i></button> <a class="navbar-brand page-scroll" href="/home">Ferret</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="/home"><b>Map</b></a>
+                            </li>
+                            <!--<li>
+                                <a href="/quests"><b>Quests</b></a>
+                            </li>-->
+                            <li>
+                                <a href="/avatar"><b>Avatar</b></a>
+                            </li>
+                            <li>
+                                <a href="/stats"><b>Stats</b></a>
+                            </li>
+                            <li>
+                                <a href="/faq"><b>FAQ</b></a>
+                            </li>
+                            <li>
+                                <a href="" id="lg_signout"><b>Sign Out</b></a>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </nav>
+    </div><!-- /.container-fluid -->
+
+    <!-- END HEADER -->
+
+
+    <!-- START CONTENT CONTAINER HERE -->
+
+    <center>
+      <h1>Avatar</h1>
+      <h4><i>Create an avatar that represents who you are!</i></h4>
+    </center>
+    
+    <!-- Avatar container -->
+    <div id="avatarContainer">
+      <!-- Avatar canvas -->
+      <canvas id="avatarCanvas" height="284px" width="468px"></canvas>
+      
+    </div>
+
+
+    <!-- Reset and Save Buttons -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1"> </div>
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-info" onclick="clearAvatar();">Clear</button>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-danger" onclick="restore();">Undo</button>
+        </div>
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-success" onclick="save();">Save</button>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-secondary" onclick="saveAvatar();">Export Avatar</button>
+        </div>
+        <div class="fb-share-button" data-href="https://ferret.herokuapp.com/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fferret.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div>
+       
+        <div class="col-sm-1"> </div>
+      </div>
+    </div>
+    <!-- OLD TAB CONTAINERS -->
+
+    <!-- Inventory tabs -->
+    <!--  <div class="inventoryTabs">
+      <div class="tab" id="tab0" onclick="selectTab(0)">Hats</div>
+      <div class="tab" id="tab1" onclick="selectTab(1)">Tops</div>
+      <div class="tab" id="tab2" onclick="selectTab(2)">Shoes</div>
+    </div> -->
+
+    <!-- Inventory container -->
+    <!-- <div id="inventoryContent"></div> -->
+
+
+    <!-- NEW TAB CONTAINERS -->
+
+    <br/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="tabbable-panel">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#tab_default_1" data-toggle="tab"> All </a>
+                            </li>
+                            <li>
+                                <a href="#tab_default_2" data-toggle="tab"> Hats </a>
+                            </li>
+                            <li>
+                                <a href="#tab_default_3" data-toggle="tab"> Tops </a>
+                            </li>
+                            <li>
+                                <a href="#tab_default_4" data-toggle="tab"> Shoes </a>
+                            </li>                            
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_default_1">
+                                <div class="row" id ="all_items">
+                                <!--
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/CowboyHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats');return false;"><img src="/images/avatar/icons/PropellerHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/GraduationCap.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/MagicalHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/SunHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/TopHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/BabyBlueShirt.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/BlueShirtWhiteTrim.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/GreenStripeShirt.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/LeatherShirtWhiteTrim.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/PeachPolkaDotShirt.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/BlueSocks.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/BrownBoots.png"</img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/GreenSneakers.png"</img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/RedSneakers.png"</img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/RedSocks.png"</img></a>
+                                  </div>-->
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_default_2">
+                                <div class="row" id="hat_items">
+                                  <!--<div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/CowboyHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/PropellerHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/GraduationCap.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/MagicalHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/SunHat.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'hats'); return false;"><img src="/images/avatar/icons/TopHat.png" width="100px" height="100px"></img></a>
+                                  </div>-->
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_default_3">
+                                <div class="row" id="shirt_items">
+                                  <!--<div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/BabyBlueShirt.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/BlueShirtWhiteTrim.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/GreenStripeShirt.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/LeatherShirtWhiteTrim.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shirts'); return false;"><img src="/images/avatar/icons/PeachPolkaDotShirt.png" width="100px" height="100px"></img></a>
+                                  </div>-->
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_default_4">
+                                <div class="row" id="shoes_items">
+                                  <!--<div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/BlueSocks.png" width="100px" height="100px"></img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/BrownBoots.png"</img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/GreenSneakers.png"</img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/RedSneakers.png"</img></a>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-2">
+                                      <a href="#" onclick="updateAvatar(this.children[0].src,'shoes'); return false;"><img src="/images/avatar/icons/RedSocks.png"</img></a>
+                                  </div>-->
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END CONTENT CONTAINER HERE -->
+
+
+    <!-- JavsScript 
+    <script src="/js/firebaseFunc.js"></script>-->
+    <!--<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSeT5rOlsjBJr1kBi0heKYx2qHq_EnjXM&libraries=visualization&callback=initMap"></script>-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/avatar.js"></script>
+</body>
+</html>

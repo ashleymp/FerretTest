@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/images/favicon.ico?" rel="icon" type="image/x-icon">
+
+    <title>Ferret</title>
+
+    <!-- LINKING TO FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+
+    <!-- CSS STYLING -->
+    <link rel="stylesheet" href="assets2/css/main.css" />
+    <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <style>
+       #map {
+           position: absolute;
+           top: 0px;
+           left: 0px;
+           right: 0px;
+           bottom: 0px;
+       }
+    </style>
+</head>
+
+
+<body>
+    <div id="page-wrapper">
+      <!-- Header -->
+        <header id="header" class="alt">
+          <nav>
+            <a href="#menu">Ferret</a>
+          </nav>
+        </header>
+
+      <!-- Menu -->
+        <nav id="menu">
+          <div class="inner">
+            <h2>Ferret</h2>
+            <ul class="links">
+              <li><a href="/home">Home</a></li>
+              <!--<li><a href="/quests">Quests</a></li>-->
+              <li><a href="/avatar">Avatar</a></li>
+              <li><a href="/stats">Stats</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="" id="lg_signout"><b>Sign Out</b></a></li>
+            </ul>
+            <a href="#" class="close">Close</a>
+          </div>
+        </nav>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- JavsScript -->
+    <script src="assets2/js/skel.min.js"></script>
+    <script src="assets2/js/jquery.min.js"></script>
+    <script src="assets2/js/jquery.scrollex.min.js"></script>
+    <script src="assets2/js/util.js"></script>
+    <script src="assets2/js/main.js"></script>    
+
+    <script src="/js/map.js"></script> 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSeT5rOlsjBJr1kBi0heKYx2qHq_EnjXM&libraries=visualization&callback=initMap"></script> 
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

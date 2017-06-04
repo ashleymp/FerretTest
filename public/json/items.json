@@ -1,0 +1,246 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2414815868251,
+          32.88687951947169
+        ]
+      },
+      "properties": {
+        "name": "Rady School of Management",
+        "description": "You found a Top Hat!",
+        "item_num": 5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2517839516513,
+          32.88530404668995
+        ]
+      },
+      "properties": {
+        "name": "Ho Chi Minh Trail",
+        "description": "You found a pair of Brown Hiking Boots!",
+        "item_num": 12
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.233523,
+          32.881801
+        ]
+      },
+      "properties": {
+        "name": "Computer Science Building",
+        "description": "You found a Magical Hat!",
+        "item_num": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.25122171454132,
+          32.876817766294245
+        ]
+      },
+      "properties": {
+        "name": "Black's Beach",
+        "description": "You found a sunhat!",
+        "item_num": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.25415904773399,
+          32.86567669720857
+        ]
+      },
+      "properties": {
+        "name": "Scripps Institute of Oceanography",
+        "description": "You found a Baby Blue Shirt!",
+        "item_num": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.24754729773849,
+          32.864590232663474
+        ]
+      },
+      "properties": {
+        "name": "Birch Aquarium",
+        "description": "You found a propeller hat!",
+        "item_num": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.23756948020309,
+          32.88089854533763
+        ]
+      },
+      "properties": {
+        "name": "Geisel Library",
+        "description": "You found a Graduation Cap! Congrats!",
+        "item_num": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.25633895024657,
+          32.85856383852346
+        ]
+      },
+      "properties": {
+        "name": "La Jolla Shores",
+        "description": "You found a Peach Polka Dot Shirt!",
+        "item_num": 10
+        
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2395802,
+          32.8873194
+        ]
+      },
+      "properties": {
+        "name": "RIMAC Field",
+        "description": "You found a pair of Red Sneakers!",
+        "item_num": 14
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2415314,
+          32.8784751
+        ]
+      },
+      "properties": {
+        "name": "COGS 121 Classroom",
+        "description": "You found a Cowboy Hat!",
+        "item_num": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2360862,
+          32.8797098
+        ]
+      },
+      "properties": {
+        "name": "Price Center",
+        "description": "You found a Blue Shirt!",
+        "item_num": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2340407,
+          32.881921
+        ]
+      },
+      "properties": {
+        "name": "Warren Bear",
+        "description": "You found Red Socks!",
+        "item_num": 15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2395888,
+          32.8778378
+        ]
+      },
+      "properties": {
+        "name": "Mandeville Auditorium",
+        "description": "You found a Leather Shirt!",
+        "item_num": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.241248,
+          32.877149
+        ]
+      },
+      "properties": {
+        "name": "Main Gym",
+        "description": "You found a Green Sneakers!",
+        "item_num": 13
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.245343,
+          32.887391
+        ]
+      },
+      "properties": {
+        "name": "Salk Institute",
+        "description": "You found Blue Socks!",
+        "item_num": 11
+      }
+    },        
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2396837,
+          32.8785553
+        ]
+      },
+      "properties": {
+        "name": "Sun God Statue",
+        "description": "You found a Green Stripe Shirt!",
+        "item_num": 8
+      }
+    }     
+  ]
+}
