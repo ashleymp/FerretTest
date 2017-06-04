@@ -46,7 +46,7 @@ if ('development' == app.get('env')) {
 if(portNumber != 3000){
 	app.get('*',function(req,res,next){
 	  if(req.headers['x-forwarded-proto']!='https')
-	    res.redirect('https://ferret.herokuapp.com'+req.url)
+	    res.redirect('https://ferret-test.herokuapp.com'+req.url)
 	  else
 	    next() /* Continue to other routes if we're not redirecting */
 	});
